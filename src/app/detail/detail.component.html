@@ -1,0 +1,86 @@
+<div style="background-image: url('../assets/ptt.jpg'); height: 900px;">
+  <br /><br />
+  <div
+    class="container"
+    style="  background: #f0f5f6; margin: 100px;
+  "
+  >
+    <table>
+      <tr>
+        <td rowspan="8">
+          <img
+            [src]="article.img"
+            style="float: left;"
+            width="500px"
+            height="500px"
+          />
+        </td>
+        <td>
+          <h2 style="color: sienna;">{{ article.libelle | titlecase }}.</h2>
+          <hr class="hr" />
+        </td>
+      </tr>
+      <tr>
+        <td>this article was added on {{ article.date | date: "medium" }}</td>
+      </tr>
+      <tr>
+        <td>
+          <strong
+            >Price:
+            <span style="color: gold;">{{
+              article.prix | currency
+            }}</span></strong
+          >
+        </td>
+      </tr>
+      <tr>
+        <td><strong>PRODUCT TYPE:</strong> Camping</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>AVAILABILITY: </strong
+          ><span
+            class="bg-success"
+            *ngIf="article.dispo == true; else nomore"
+            style="border-radius: 4; padding: 10px; color: white;"
+            >Many in stock</span
+          >
+          <ng-template
+            class="bg-success"
+            style="border-radius: 4; padding: 10px; color: white;"
+            #nomore
+            >out of stock
+          </ng-template>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Quantity:</strong>
+          <button class="dec" (click)="moin(quan.value)">-</button>
+          <input type="number" id="qua" value="1" min="1" [(ngModel)]="quan" />
+          <button class="inc" (click)="plus(quan.value)">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>
+            subtotal with
+            <span class="bg-danger" style="border-radius: 4;">{{
+              article.reduction | percent
+            }}</span>
+            :</strong
+          >
+          {{ reduc() }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button [disabled]="!article.dispo" class="btn btn-dark">
+            Commander
+          </button>
+          <button [routerLink]="['/shop']" class="btn btn-dark">Return</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <a href="projet.html" class="navbar-brand">Logo</a>
+  <a [routerLink]="['/shop']" class="navbar-brand"
+    ><img src="../assets/bon.png" width="60px" height="55px"
+  /></a>
   <button class="navbar-toggler" type="button" data-target="#navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,37 +9,22 @@
     <ul class="navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" routerLinkActive="actif" [routerLink]="['/shop']"
-          >shop</a
+          >Shop</a
         >
       </li>
-      <li class="nav-item">
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLinkActive="actif" [routerLink]="['/contact']"
+          >Contact Us</a
+        >
+      </li>
+
+      <li class="nav-item active">
         <a
           class="nav-link"
           routerLinkActive="actif"
-          [routerLink]="['/produits']"
-          >Produits</a
-        >
-      </li>
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          id="navdrop"
-          role="button"
-          data-toggle="dropdown"
-          data-hover="dropdown"
-          routerLinkActive="actif"
-          [routerLink]="['/contact']"
-          >Contact</a
-        >
-
-        <div class="dropdown-menu" aria-labelledby="navdrop">
-          <a href="shop.html" class="dropdown-item" target="blank">Service1</a>
-          <a href="shop.html" class="dropdown-item" target="blank">Service2</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="reservation.html" class="nav-link" target="blank"
-          >Contact Us</a
+          [routerLink]="['/modification']"
+          >Modification</a
         >
       </li>
     </ul>

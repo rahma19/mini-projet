@@ -1,104 +1,127 @@
-<html lang="en">
-  <body>
-    <header>
-      <div
-        class="view"
-        style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
-      >
-        <div class="mask rgba-gradient align-items-center">
-          <div class="container">
-            <div class="row mt-5">
-              <div
-                class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left"
-              >
-                <h1
-                  class="h1-responsive font-weight-bold wow fadeInLeft"
-                  data-wow-delay="0.3s"
-                  style="margin-top: 100px;"
-                >
-                  Sign up right now!
-                </h1>
-                <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s" />
-                <h6 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
-                  repellendus quasi fuga nesciunt dolorum nulla magnam veniam
-                  sapiente, fugiat! Commodi sequi non animi ea dolor molestiae,
-                  quisquam iste, maiores. Nulla.
-                </h6>
-                <a
-                  class="btn btn-outline-white wow fadeInLeft"
-                  data-wow-delay="0.3s"
-                  >Learn more</a
-                >
-              </div>
-
-              <div class="col-md-6 col-xl-5 mb-4">
-                <div
-                  class="card wow fadeInRight"
-                  data-wow-delay="0.3s"
-                  style="margin-top: 100px;"
-                >
-                  <div class="card-body">
-                    <div class="text-center">
-                      <h3 class="white-text">
-                        <i class="fas fa-user white-text"></i> Register:
-                      </h3>
-                      <hr class="hr-light" />
-                    </div>
-                    <div class="md-form">
-                      <label for="form3" class="active">Your name</label>
-                      <i class="fas fa-user prefix white-text active"></i>
-                      <input
-                        type="text"
-                        id="form3"
-                        class="white-text form-control"
-                      />
-                    </div>
-                    <div class="md-form">
-                      <label for="form2" class="active" #mail>Your email</label>
-                      <i class="fas fa-envelope prefix white-text active"></i>
-                      <input
-                        type="email"
-                        id="form2"
-                        class="white-text form-control"
-                      />
-                    </div>
-                    <div class="md-form">
-                      <label for="form2" class="active" #mdp
-                        >Your password</label
-                      >
-                      <i class="fas fa-envelope prefix white-text active"></i>
-                      <input
-                        type="email"
-                        id="form2"
-                        class="white-text form-control"
-                      />
-                    </div>
-                    <br />
-                    <div class="text-center mt-4">
-                      <button
-                        class="btn btn-danger"
-                        onclick="verify(mail.value,mdp.value)"
-                      >
-                        Sign up
-                      </button>
-                      <hr class="hr-light mb-3 mt-4" />
-                    </div>
-                  </div>
-                </div>
-                <!--/.Form-->
-              </div>
-              <!--Grid column-->
-            </div>
-            <!--Grid row-->
-          </div>
-          <!-- Content -->
+<div
+  class="view"
+  style="background-image: url('../assets/cd.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
+>
+  <div class="mask rgba-gradient align-items-center">
+    <div class="container">
+      <div class="row mt-5">
+        <div
+          class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left"
+        >
+          <h1
+            class="h1-responsive font-weight-bold wow fadeInLeft"
+            data-wow-delay="0.3s"
+            style="margin-top: 100px;"
+          >
+            Sign up right now!
+          </h1>
+          <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s" />
+          <h6 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">
+            Founded in 1959, The Camp Spot is a full service camp outfitter
+            located in Ariana. Our philosophy is based on more than 50 years of
+            experience and is simple: Make it as easy as possible for parents to
+            shop for camp and offer the product campers want at competitive
+            prices.
+          </h6>
         </div>
-        <!-- Mask & flexbox options-->
+
+        <div class="col-md-6 col-xl-5 mb-4">
+          <div
+            class="card wow fadeInRight"
+            data-wow-delay="0.3s"
+            style="margin-top: 100px;"
+          >
+            <div class="card-body">
+              <form (ngSubmit)="onSubmit()" #f="ngForm">
+                <div class="text-center">
+                  <h3 class="white-text">Log in with your email account</h3>
+                  <hr class="hr-light" />
+                </div>
+                <div class="md-form form-group">
+                  <label for="form3" class="active">Your name</label>
+                  <input
+                    type="text"
+                    id="form3"
+                    name="lib"
+                    [(ngModel)]="name"
+                    class="formcontrol"
+                    required
+                    pattern="[A-Z][a-zA-Z]+"
+                    #lib="ngModel"
+                  />
+                </div>
+                <div
+                  *ngIf="lib.errors?.pattern && lib.dirty"
+                  class="alert alert-danger"
+                >
+                  The label must begin with a capital letter followed by at
+                  least 1 character
+                </div>
+                <div
+                  [hidden]="!lib.errors?.required || lib.pristine"
+                  class="alert alert-danger"
+                >
+                  The label is a required field
+                </div>
+                <div class="md-form form-group">
+                  <label for="form2" class="active">Your email</label>
+                  <input
+                    type="mail"
+                    id="form2"
+                    name="email"
+                    [(ngModel)]="mail"
+                    class="formcontrol"
+                    required
+                    #email="ngModel"
+                  />
+                </div>
+                <!--(keyup)="verif1(mail.value)"-->
+                <div class="md-form form-group">
+                  <label for="form1" class="active">Your password</label>
+                  <input
+                    type="password"
+                    id="form1"
+                    name="mp"
+                    [(ngModel)]="mdp"
+                    class="formcontrol"
+                    required
+                    #mp="ngModel"
+                  />
+                </div>
+                <!--(keyup)="verif2(mdp.value)"-->
+                <div>
+                  <input
+                    type="checkbox"
+                    style=" width: 25px;
+                  height: 25px;
+                  cursor: pointer;
+                  border-radius: 3px;
+                  border: 1px solid #ccc;"
+                  />
+                  <span style="color: white;">Remember my password</span>
+                </div>
+                <br />
+                <div class="text-center mt-4">
+                  <button
+                    type="submit"
+                    class="form-control btn-danger"
+                    [disabled]="f.invalid"
+                  >
+                    Log in
+                  </button>
+
+                  <!--*ngIf="verif(mail.value, mdp.value)"-->
+                  <a href="#" style="color: teal;">Forgot your password?</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--Grid column-->
       </div>
-      <!-- Full Page Intro -->
-    </header>
-    <!-- Main navigation -->
-    <!--Main Layout-->
-  </body>
-</html>
+      <!--Grid row-->
+    </div>
+    <!-- Content -->
+  </div>
+  <!-- Mask & flexbox options-->
+</div>

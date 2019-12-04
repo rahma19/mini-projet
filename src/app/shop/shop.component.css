@@ -1,10 +1,7 @@
 footer {
-  margin-top: 200px;
+  margin-top: 600px;
 }
-.x {
-  background-image: url("C:/Users/rahma/Desktop/travail/src/assets/bb.jpg");
-  background-size: cover;
-}
+
 .fakeimg {
   height: 200px;
   background: #f0f5f6;
@@ -109,12 +106,6 @@ footer {
   z-index: 1;
 }
 
-/*.home-doctors .common-doctor li a {
-      background: #008fd5;
-      color: white;
-      padding: 0.75em;
-      border: 5px solid rgba(255, 255, 255, 0.33);
-    }*/
 .doc-img {
   transform: scale(1, 1);
   transition-duration: 500ms;

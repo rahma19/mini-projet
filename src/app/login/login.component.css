@@ -65,3 +65,9 @@ header,
 h6 {
   line-height: 1.7;
 }
+input.ng-valid {
+  border-left: 2px solid green;
+}
+input.ng-invalid {
+  border-left: 2px solid red;
+}

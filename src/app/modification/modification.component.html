@@ -1,0 +1,217 @@
+<div class="bg-image" style="background-image: url('../assets/ca.jpg');"></div>
+<h1>Any Modification?</h1>
+
+<div class="bg">
+  <div class="container ">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Add An Article</h2>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="form-group">
+            <label for="idd" class="active">Enter id</label>
+            <input
+              type="number"
+              id="idd"
+              name="identif"
+              required
+              class="form-control"
+              [(ngModel)]="idantifiant"
+              #identif="ngModel"
+            />
+          </div>
+          <div
+            *ngIf="identif.invalid && identif.dirty"
+            class="alert alert-danger"
+          >
+            The identifier must be a number
+          </div>
+          <div class="form-group">
+            <label for="image" class="active">Enter image</label>
+            <input
+              type="text"
+              id="image"
+              name="img"
+              required
+              class="form-control"
+              [(ngModel)]="img"
+            />
+          </div>
+          <div class="form-group">
+            <label for="d" class="active">Enter new Date</label>
+            <input
+              type="text"
+              id="d"
+              name="date"
+              required
+              class="form-control"
+              [(ngModel)]="date"
+            />
+          </div>
+          <div class="form-group">
+            <label for="n" class="active">Enter libelle</label>
+            <input
+              type="text"
+              id="n"
+              name="libelle"
+              required
+              class="form-control"
+              [(ngModel)]="libelle"
+            />
+          </div>
+          <div class="form-group">
+            <label for="prc" class="active">Enter price</label>
+            <input
+              type="text"
+              id="prc"
+              name="prix"
+              required
+              class="form-control"
+              [(ngModel)]="prix"
+            />
+          </div>
+          <div class="form-group">
+            <label for="av" class="active">Available?</label>
+            <input
+              type="text"
+              id="av"
+              name="dispo"
+              required
+              class="form-control"
+              [(ngModel)]="dispo"
+            />
+          </div>
+          <div class="form-group">
+            <label for="redc" class="active">Reduction?</label>
+            <input
+              type="number"
+              id="redc"
+              name="reduction"
+              required
+              class="form-control"
+              [(ngModel)]="reduction"
+            />
+          </div>
+          <button type="submit" class="btn btn-danger">
+            confirm your choice?
+          </button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <h2>Modify An Article</h2>
+        <form (ngSubmit)="submit(f2)" #f2="ngForm">
+          <div class="form-group">
+            <label for="idd" class="active">Enter id</label>
+            <input
+              type="number"
+              id="idd"
+              name="identif"
+              required
+              class="form-control"
+              [(ngModel)]="id"
+              #identif="ngModel"
+            />
+          </div>
+          <div
+            *ngIf="identif.invalid && identif.dirty"
+            class="alert alert-danger"
+          >
+            The identifier must be a number
+          </div>
+          <div class="form-group">
+            <label for="image" class="active">Enter image</label>
+            <input
+              type="text"
+              id="image"
+              name="img"
+              required
+              class="form-control"
+              [(ngModel)]="image"
+            />
+          </div>
+          <div class="form-group">
+            <label for="d" class="active">Enter new Date</label>
+            <input
+              type="text"
+              id="d"
+              name="date"
+              required
+              class="form-control"
+              [(ngModel)]="dat"
+            />
+          </div>
+          <div class="form-group">
+            <label for="n" class="active">Enter libelle</label>
+            <input
+              type="text"
+              id="n"
+              name="libelle"
+              required
+              class="form-control"
+              [(ngModel)]="lib"
+            />
+          </div>
+          <div class="form-group">
+            <label for="prc" class="active">Enter price</label>
+            <input
+              type="text"
+              id="prc"
+              name="prix"
+              required
+              class="form-control"
+              [(ngModel)]="prx"
+            />
+          </div>
+          <div class="form-group">
+            <label for="av" class="active">Available?</label>
+            <input
+              type="text"
+              id="av"
+              name="dispo"
+              required
+              class="form-control"
+              [(ngModel)]="disponible"
+            />
+          </div>
+          <div class="form-group">
+            <label for="redc" class="active">Reduction?</label>
+            <input
+              type="number"
+              id="redc"
+              name="reduction"
+              required
+              class="form-control"
+              [(ngModel)]="red"
+            />
+          </div>
+          <button type="submit" class="btn btn-danger">
+            confirm your choice?
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6" style="margin-top: 90px; margin-left: 100px;">
+        <h2>Delete An Article</h2>
+        <form (ngSubmit)="submt(f3)" #f3="ngForm">
+          <div class="form-group">
+            <label for="idd" class="active">Enter id</label>
+            <input
+              type="text"
+              id="idd"
+              name="id"
+              required
+              class="form-control"
+              [(ngModel)]="identifiant"
+            />
+          </div>
+          <button type="submit" class="btn btn-danger">
+            confirm your choice?
+          </button>
+        </form>
+      </div>
+      <!--</div>-->
+    </div>
+  </div>
+</div>
