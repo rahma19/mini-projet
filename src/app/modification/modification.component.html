@@ -91,7 +91,7 @@
               [(ngModel)]="reduction"
             />
           </div>
-          <button type="submit" class="btn btn-danger">
+          <button type="submit" class="btn btn-danger" [disabled]="f.invalid">
             confirm your choice?
           </button>
         </form>
@@ -129,6 +129,7 @@
               [(ngModel)]="image"
             />
           </div>
+
           <div class="form-group">
             <label for="d" class="active">Enter new Date</label>
             <input
@@ -184,7 +185,7 @@
               [(ngModel)]="red"
             />
           </div>
-          <button type="submit" class="btn btn-danger">
+          <button type="submit" class="btn btn-danger" [disabled]="f2.invalid">
             confirm your choice?
           </button>
         </form>
@@ -203,10 +204,13 @@
               name="id"
               required
               class="form-control"
-              [(ngModel)]="identifiant"
+              [(ngModel)]="idd"
             />
           </div>
-          <button type="submit" class="btn btn-danger">
+          <div *ngIf="idd.invalid && idd.dirty" class="alert alert-danger">
+            The identifier must be a number
+          </div>
+          <button type="submit" class="btn btn-danger" [disabled]="f3.invalid">
             confirm your choice?
           </button>
         </form>

@@ -50,9 +50,10 @@ export class ModificationComponent implements OnInit {
       this.red
     );
   }
+  idd: number = 0;
   submt(f: NgForm) {
     let drop: boolean;
-    drop = this.articleService.delete(this.id);
+    drop = this.articleService.delete(this.idd);
   }
   ngOnInit() {}
 }

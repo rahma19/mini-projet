@@ -75,7 +75,7 @@
                     #email="ngModel"
                   />
                 </div>
-                <!--(keyup)="verif1(mail.value)"-->
+
                 <div class="md-form form-group">
                   <label for="form1" class="active">Your password</label>
                   <input
@@ -88,7 +88,7 @@
                     #mp="ngModel"
                   />
                 </div>
-                <!--(keyup)="verif2(mdp.value)"-->
+
                 <div>
                   <input
                     type="checkbox"
@@ -102,15 +102,18 @@
                 </div>
                 <br />
                 <div class="text-center mt-4">
-                  <button
-                    type="submit"
-                    class="form-control btn-danger"
-                    [disabled]="f.invalid"
+                  <a [routerLink]="['/shop']"
+                    ><button
+                      type="submit"
+                      class="form-control btn-danger"
+                      *ngIf="
+                        verif(lib.value, email.value, mp.value) && !f.invalid
+                      "
+                    >
+                      Log in
+                    </button></a
                   >
-                    Log in
-                  </button>
 
-                  <!--*ngIf="verif(mail.value, mdp.value)"-->
                   <a href="#" style="color: teal;">Forgot your password?</a>
                 </div>
               </form>

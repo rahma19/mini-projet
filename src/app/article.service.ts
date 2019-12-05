@@ -124,7 +124,16 @@ export class ArticleService {
     return test;
   }
 
-  delete(id) {
-    this.lesArticles.pop();
+  delete(id: number): boolean {
+    let i: number = 0;
+    let test: boolean;
+    while (this.lesArticles[i].id != id) {
+      i++;
+    }
+    if (this.lesArticles[i].id == id) {
+      this.lesArticles.splice(i, 1);
+      test = true;
+    } else test = false;
+    return test;
   }
 }
