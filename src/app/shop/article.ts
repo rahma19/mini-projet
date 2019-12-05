@@ -1,11 +1,11 @@
 export class Article {
   public id: number;
-  protected img: String;
-  protected date: Date;
-  protected libelle: String;
-  protected prix: number;
-  protected dispo: boolean;
-  protected reduction: number;
+  public img: String;
+  public date: Date;
+  public libelle: String;
+  public prix: number;
+  public dispo: boolean;
+  public reduction: number;
 
   constructor(
     id: number,

@@ -193,7 +193,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6" style="margin-top: 90px; margin-left: 100px;">
+      <div class="col-md-6" style="margin-top: 70px; margin-left: 300px;">
         <h2>Delete An Article</h2>
         <form (ngSubmit)="submt(f3)" #f3="ngForm">
           <div class="form-group">
@@ -214,8 +214,28 @@
             confirm your choice?
           </button>
         </form>
+
+        <!--</div>-->
+        <div class="col-md-6" style="margin-left: 100px;">
+          <h2>remove items out of stock</h2>
+          <form (ngSubmit)="findByReduc(f1)" #f1="ngForm">
+            <div class="form-group">
+              <label for="a" class="active">Remove</label>
+              <input
+                type="text"
+                id="a"
+                name="disp"
+                required
+                class="form-control"
+                [(ngModel)]="dispnbl"
+              />
+            </div>
+            <button type="submit" class="btn btn-dark">
+              Are you Sure?
+            </button>
+          </form>
+        </div>
       </div>
-      <!--</div>-->
     </div>
   </div>
 </div>

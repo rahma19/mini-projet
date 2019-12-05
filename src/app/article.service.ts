@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Article } from "./shop/Article";
+import { NgForOf } from "@angular/common";
+import { NgForm } from "@angular/forms";
 
 @Injectable({
   providedIn: "root"
@@ -95,6 +97,15 @@ export class ArticleService {
     return true;
   }
 
+  findById(id: number): number {
+    let i = 0;
+    while (this.lesArticles[i].id != id) {
+      i++;
+    }
+    if (i <= this.lesArticles.length) return i;
+    else return -1;
+  }
+
   public update(
     id: number,
     img: string,
@@ -104,13 +115,11 @@ export class ArticleService {
     dispo: boolean,
     reduction: number
   ): boolean {
-    let i = 0;
+    let i: number;
     let item: Article;
     let test: boolean;
-    while (this.lesArticles[i].id != id) {
-      i++;
-    }
-    if (this.lesArticles[i].id == id) {
+    i = this.findById(id);
+    if (i != -1) {
       item = this.lesArticles[i];
       if (img != "") item.img = img;
       item.date = date;
@@ -125,15 +134,22 @@ export class ArticleService {
   }
 
   delete(id: number): boolean {
-    let i: number = 0;
+    let i: number;
     let test: boolean;
-    while (this.lesArticles[i].id != id) {
-      i++;
-    }
-    if (this.lesArticles[i].id == id) {
+    i = this.findById(id);
+    if (i != -1) {
       this.lesArticles.splice(i, 1);
       test = true;
     } else test = false;
     return test;
+  }
+
+  findByReduc(dispo: boolean): boolean {
+    let drop: boolean;
+    for (let i = 0; i < this.lesArticles.length; i++) {
+      if (this.lesArticles[i].dispo == dispo)
+        drop = this.delete(this.lesArticles[i].id);
+    }
+    return drop;
   }
 }

@@ -3,6 +3,7 @@ import { ArticleService } from "../article.service";
 import { NgForm, NgModel } from "@angular/forms";
 import { Article } from "../shop/Article";
 import { discardPeriodicTasks } from "@angular/core/testing";
+import { NgForOf } from "@angular/common";
 @Component({
   selector: "app-modification",
   templateUrl: "./modification.component.html",
@@ -17,6 +18,7 @@ export class ModificationComponent implements OnInit {
   dispo: boolean = false;
   reduction: number = 0;
 
+  art = this.articleService.lesArticles;
   constructor(private articleService: ArticleService) {}
   onSubmit(f: NgForm) {
     let add: boolean;
@@ -55,50 +57,11 @@ export class ModificationComponent implements OnInit {
     let drop: boolean;
     drop = this.articleService.delete(this.idd);
   }
+
+  dispnbl = false;
+  findByReduc(f: NgForm) {
+    let test: boolean;
+    test = this.articleService.findByReduc(this.dispnbl);
+  }
   ngOnInit() {}
 }
-/*findById: function(id) {
-    return artsTab[id];
-  },
-  findByString: function(crit) {
-    for (let item in artsTab) {
-      if (
-        artsTab[item].description.includes(crit) == crit ||
-        artsTab[item].nom.includes(crit)
-      ) {
-        return artsTab[item];
-      }
-    }
-    return null;
-  },
-  findByPrice: function(prix) {
-    for (let item in artsTab) {
-      if (artsTab[item].prix == prix) {
-        return artsTab[item];
-      }
-    }
-    return null;
-  },
-  };
-
-return obj;
-};
-
-art.add();
-art2.add();
-
-for (let item in artsTab) {
-console.log(artsTab[item].toString());
-}
-
-artsMgr.update(art.id, "fa7ma", "", "");
-let findArt = artsMgr.findByString("7ma");
-if (findArt) {
-console.log(findArt.toString());
-}
-
-function searchFn(elem) {
-let findArt = artsMgr.findByString(elem);
-if (findArt) {
-  console.log(findArt.toString());
-}*/
