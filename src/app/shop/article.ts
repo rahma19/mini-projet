@@ -1,14 +1,11 @@
 export class Article {
-  splice(i: number, arg1: number) {
-    throw new Error("Method not implemented.");
-  }
   public id: number;
-  public img: String;
-  public date: Date;
-  public libelle: String;
-  public prix: number;
-  public dispo: boolean;
-  public reduction: number;
+  protected img: String;
+  protected date: Date;
+  protected libelle: String;
+  protected prix: number;
+  protected dispo: boolean;
+  protected reduction: number;
 
   constructor(
     id: number,

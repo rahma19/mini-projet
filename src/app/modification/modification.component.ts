@@ -11,7 +11,7 @@ import { discardPeriodicTasks } from "@angular/core/testing";
 export class ModificationComponent implements OnInit {
   idantifiant: number = 0;
   img: string = "";
-  date: Date = new Date(2000, 1, 1);
+  date: Date = new Date();
   libelle: string = "";
   prix: number = 0;
   dispo: boolean = false;
@@ -32,7 +32,7 @@ export class ModificationComponent implements OnInit {
   }
   id: number = 0;
   image: string = "";
-  dat: Date = new Date(2000, 1, 1);
+  dat: Date = new Date();
   lib: string = "";
   prx: number = 0;
   disponible: boolean = true;
